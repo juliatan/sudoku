@@ -9,10 +9,11 @@ class Grid
   end
 
   def populate
-    puzzle.chars.map { |value| Cell.new(value.to_i) }
+    puzzle.chars.map.with_index { |value, index| Cell.new(value.to_i, index) }
   end
 
   def neighbours(cell) #input as an array reference e.g. cells[0]
+    
   #   array = []
   #   # find neighbours in the same row and column
   #   array << '1'.upto('9').map { |no| cell[0]+no }
