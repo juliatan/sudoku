@@ -24,7 +24,7 @@ describe Grid do
 
   context 'when determining neighbours for each cell' do
 
-    xit 'can determine the neighbours of each cell' do
+    it 'can determine the neighbours of each cell' do
       expect(grid.neighbours(grid.cells[10])).to eq [ grid.cells[0].value, 
       grid.cells[1].value, grid.cells[2].value, grid.cells[9].value, 
       grid.cells[11].value, grid.cells[18].value, grid.cells[19].value,

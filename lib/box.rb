@@ -1,7 +1,7 @@
 module Box
 
   def boxes # returns a hash of arrays of cell ids
-    box_reference_points = [0,3,6,27,30,33,54,57,60]
+    box_reference_points = [1,4,7,28,31,34,55,58,61]
     boxes_hash = {}
     box_reference_points.map.with_index do |first_cell, index|
       boxes_hash["box#{index+1}".to_sym] = [first_cell, first_cell + 1, 
