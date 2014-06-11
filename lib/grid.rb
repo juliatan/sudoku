@@ -45,6 +45,22 @@ class Grid
   end
 
   def solve
+    outstanding_before, looping = 81, false # parallel assignment
+    # continue solving individual cells while puzzle not solved and it is not a hard sudoku
+    while !solved? && !looping
+      @cells.each{|cell| cell.solve(self) }
+      outstanding         = @cells.count {|c| c.solved? }
+      looping             = outstanding_before == outstanding
+      outstanding_before  = outstanding
+    end 
+  end
+
+  def solved?
+    @cells.all? { |cell| cell.value > 0 }
+  end
+
+  def to_s
+    @cells.map{|cell| cell.value}.join
   end
 
 end

@@ -30,17 +30,17 @@ describe Grid do
     end
 
     it 'can determine the neighbours values for each cell' do
-      expect(grid.neighbours_values(10)).to eq [ 1,2,4,5,6,7,8,9]
+      expect(grid.neighbours_values(10)).to eq [ 1,2,4,5,6,7,8,9 ]
     end
 
   end
 
   context "solving sudoku" do
 
-    xit "can solve the puzzle" do
-      expect(grid.solved?).to be_false
+    it "can solve the puzzle" do
+      expect(grid.solved?).to be false
       grid.solve
-      expect(grid.solved?).to be_true
+      expect(grid.solved?).to be true
       expect(grid.to_s).to eq('615493872348127956279568431496832517521746389783915264952681743864379125137254698')
     end
   end
