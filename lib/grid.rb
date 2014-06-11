@@ -34,7 +34,8 @@ class Grid
         array << cell if cell.index == neighbour_index
       end
     end
-    array.map! { |cell| cell.value }.uniq.sort! - [0]
+    array.map!(&:value).uniq.sort! - [0]
+    # same as array.map! { |cell| cell.value }.uniq.sort! - [0]
   end
 
   def solve
@@ -53,7 +54,8 @@ class Grid
   end
 
   def to_s
-    @cells.map { |cell| cell.value }.join
+    @cells.map(&:value).join
+    # same as @cells.map { |cell| cell.value }.join
   end
 
   def inspect
