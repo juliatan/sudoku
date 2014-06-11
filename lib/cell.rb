@@ -1,6 +1,6 @@
 class Cell
 
-  attr_accessor :value
+  attr_accessor :value, :index
 
   def initialize(value=0, index=0)
     @value = value

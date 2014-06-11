@@ -1,6 +1,6 @@
 module Groups
 
-  def boxes # returns a hash of arrays of cell ids as integers
+  def boxes # returns a hash of arrays of cell indexes as integers
     box_reference_points = [1,4,7,28,31,34,55,58,61]
     box_hash = {}
     box_reference_points.map.with_index do |first_cell, index|
@@ -11,13 +11,13 @@ module Groups
     box_hash
   end
 
-  def box_member(cell_id) # input cell object id, return symbol
+  def box_member(cell_id) # input cell object index, return symbol
     boxes.each do |box, box_id_array|
       return box if box_id_array.include?(cell_id)
     end
   end
 
-  def rows # returns a hash of arrays of cell ids as integers
+  def rows # returns a hash of arrays of cell indexes as integers
     row_reference_points = [1,10,19,28,37,46,55,64,73]
     row_hash ={}
     row_reference_points.map.with_index do |first_cell, index|
@@ -28,13 +28,13 @@ module Groups
     row_hash
   end
 
-  def row_member(cell_id) # input cell object id, return symbol
+  def row_member(cell_id) # input cell object index, return symbol
     rows.each do |row, row_id_array|
       return row if row_id_array.include?(cell_id)
     end
   end
 
-  def columns # returns a hash of arrays of cell ids as integers
+  def columns # returns a hash of arrays of cell indexes as integers
     column_reference_points = [1,2,3,4,5,6,7,8,9]
     column_hash ={}
     column_reference_points.map.with_index do |first_cell, index|
@@ -45,7 +45,7 @@ module Groups
     column_hash
   end
 
-  def column_member(cell_id) # input cell object id, return symbol
+  def column_member(cell_id) # input cell object index, return symbol
     columns.each do |column, column_id_array|
       return column if column_id_array.include?(cell_id)
     end

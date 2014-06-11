@@ -24,9 +24,13 @@ describe Grid do
 
   context 'when determining neighbours for each cell' do
 
-    it 'can determine the neighbours of each cell' do
-      expect(grid.neighbours(10)).to eq [ 1,2,3,11,12,13,14,15,16,17,18,19,
+    it 'can determine the neighbours of each cell (by index)' do
+      expect(grid.neighbours_index(10)).to eq [ 1,2,3,11,12,13,14,15,16,17,18,19,
         20,21,28,37,46,55,64,73 ] 
+    end
+
+    it 'can determine the neighbours values for each cell' do
+      expect(grid.neighbours_values(10)).to eq [ 1,2,4,5,6,7,8,9]
     end
 
   end

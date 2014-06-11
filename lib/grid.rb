@@ -17,15 +17,31 @@ class Grid
     puzzle.chars.map.with_index { |value, index| Cell.new(value.to_i, index+1) }
   end
 
-  def neighbours(cell_id) #input as the Cell object's ID
-    
+  def display
+    values = cells.map do |cell| 
+      cell.value
+    end
+    values.each_slice(9) { |slice| p slice }
+  end
+
+  def neighbours_index(cell_index) #output is sorted array of cell indexes
     array = []
     # find neighbours in the same row and column
-    array << rows[row_member(cell_id)] << columns[column_member(cell_id)]
+    array << rows[row_member(cell_index)] << columns[column_member(cell_index)]
 
     # find neighbours in the same box
-    array << boxes[box_member(cell_id)]
-    return (array.flatten.uniq! - [cell_id]).sort!
+    array << boxes[box_member(cell_index)]
+    return (array.flatten.uniq! - [cell_index]).sort!
+  end
+
+  def neighbours_values(cell_index) #output is sorted array of cell values
+    array = []
+    cells.each do |cell|
+      neighbours_index(cell_index).each do |neighbour_index|
+        array << cell if cell.index == neighbour_index
+      end
+    end
+    array.map! { |cell| cell.value }.uniq.sort! - [0]
   end
 
   def solve
