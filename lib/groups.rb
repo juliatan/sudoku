@@ -11,7 +11,7 @@ module Groups
     box_hash
   end
 
-  def box_member(cell_id) # input cell object id
+  def box_member(cell_id) # input cell object id, return symbol
     boxes.each do |box, box_id_array|
       return box if box_id_array.include?(cell_id)
     end
@@ -28,7 +28,7 @@ module Groups
     row_hash
   end
 
-  def row_member(cell_id) # input cell object id
+  def row_member(cell_id) # input cell object id, return symbol
     rows.each do |row, row_id_array|
       return row if row_id_array.include?(cell_id)
     end
@@ -45,7 +45,7 @@ module Groups
     column_hash
   end
 
-  def column_member(cell_id) # input cell object id
+  def column_member(cell_id) # input cell object id, return symbol
     columns.each do |column, column_id_array|
       return column if column_id_array.include?(cell_id)
     end

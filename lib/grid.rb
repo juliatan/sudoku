@@ -1,4 +1,8 @@
+require_relative 'groups'
+
 class Grid
+
+  include Groups
 
   attr_reader :puzzle
   attr_accessor :cells
@@ -15,15 +19,13 @@ class Grid
 
   def neighbours(cell_id) #input as the Cell object's ID
     
-  #   array = []
-  #   # find neighbours in the same row and column
-  #   array << '1'.upto('9').map { |no| cell[0]+no }
-  #   array << '1'.upto('9').map { |no| no+cell[1] }
+    array = []
+    # find neighbours in the same row and column
+    array << rows[row_member(cell_id)] << columns[column_member(cell_id)]
 
-  #   # find neighbours in the same box
-  #   box = self.box_member(cell)
-  #   array << BOXES[box]
-  #   return array.flatten.uniq! - [cell]
+    # find neighbours in the same box
+    array << boxes[box_member(cell_id)]
+    return (array.flatten.uniq! - [cell_id]).sort!
   end
 
   def solve
