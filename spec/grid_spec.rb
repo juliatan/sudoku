@@ -37,12 +37,13 @@ describe Grid do
 
   context "solving sudoku" do
 
-    it "can solve the puzzle" do
+    it 'can solve the puzzle' do
       expect(grid.solved?).to be false
       grid.solve
       expect(grid.solved?).to be true
       expect(grid.to_s).to eq('615493872348127956279568431496832517521746389783915264952681743864379125137254698')
     end
+
   end
 
 end

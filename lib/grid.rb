@@ -17,13 +17,6 @@ class Grid
     puzzle.chars.map.with_index { |value, index| Cell.new(value.to_i, index+1) }
   end
 
-  def display
-    values = cells.map do |cell| 
-      cell.value
-    end
-    values.each_slice(9) { |slice| p slice }
-  end
-
   def neighbours_index(cell_index) #output is sorted array of cell indexes
     array = []
     # find neighbours in the same row and column
@@ -60,7 +53,14 @@ class Grid
   end
 
   def to_s
-    @cells.map{|cell| cell.value}.join
+    @cells.map { |cell| cell.value }.join
+  end
+
+  def inspect
+    values = cells.map do |cell| 
+      cell.value
+    end
+    values.each_slice(9) { |slice| p slice }
   end
 
 end
