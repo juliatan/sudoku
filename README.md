@@ -14,13 +14,18 @@ Technologies used
 * Ruby
 * RSpec
 
+Potential improvements
+----------------------
+
+Amend code so that harder Sudoku puzzles involving iterations can be solved.
+
 How to use
 ----------
 
 ```shell
 git clone git@github.com:juliatan/sudoku.git
 cd sudoku
-ruby takeaway.rb
+ruby sudoku.rb
 ```
 
 How to run tests
